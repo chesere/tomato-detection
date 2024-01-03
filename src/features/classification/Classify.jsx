@@ -78,14 +78,18 @@ function Classify() {
               </div>
 
               <div className='label-probabilities'>
-                {Object.entries(result.label_probabilities).map(([category, probability]) => (
-                  <p key={category} style={{ color: getColor(probability) }}>
-                    {category}: {probability.toFixed(4)}
-                  </p>
-                ))}
+                {Object.entries(result.label_probabilities)
+                  .sort(([, a], [, b]) => b - a) // Sort by probability in descending order
+                  .map(([category, probability]) => (
+                    <div key={category} className="label-probability">
+                      <div className='label'>
+                        <div className='probability-line' style={{ width: `${probability * 100}%` }}></div>
+                        <span>{ category }</span>
+                      </div>
+                      <span>{ probability.toFixed(4) }</span>
+                    </div>
+                  ))}
               </div>
-
-              
             </div>
         )}
 

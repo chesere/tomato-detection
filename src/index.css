@@ -301,10 +301,26 @@ body {
 
 .classify-result-container .label-probabilities {
     margin-top: 10px;
-    padding: 10px;
-    background-color: #e4e4e4;
+    font-size: 13px;
+}
+
+.label-probability {
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.label-probability .label {
+    flex-grow: 1;
+}
+
+.probability-line {
+    height: 3px;
+    background-color: green;
     border-radius: 4px;
 }
+
+
 
 @media (min-width: 1000px) {
 
